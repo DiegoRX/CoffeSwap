@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import getBlockchain from './ethereum.js';
 import getPolygonBlockchain from './polygon.js';
-import { ethers } from 'ethers';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
+import { BrowserRouter, Route } from 'react-router-dom';
 import Main from './pages/Main';
 import Form from './pages/Form/index.js';
 import { Context } from './context/Context';
@@ -104,7 +104,7 @@ function App() {
   return (
     <Context.Provider value={dataContext}>
       <BrowserRouter basename='/'>
-        <Switch>
+        
           <Route exact strict path="/" render={() => <Main />} />      
           <Route exact strict path="/staking" render={() => <Main staking />} />
           <Route exact strict path="/success" render={() => <Form />} />
@@ -125,7 +125,7 @@ function App() {
             return null;
           }} />
           <Route exact strict path='/farms' render={() => <Main farms />} />
-        </Switch>
+       
       </BrowserRouter>
     </Context.Provider>
   );
